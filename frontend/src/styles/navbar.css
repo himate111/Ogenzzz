@@ -1,0 +1,105 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f5f5f5;
+}
+
+/* NAV CONTAINER */
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+  z-index: 100;
+}
+
+/* NAV PILL */
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 14px 32px;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* BRAND */
+.brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* MENU WRAPPER */
+.menu-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* SLIDER (PERFECT CENTER FIX) */
+.slider {
+  position: absolute;
+  left: 0;
+  height: 42px;
+  background: #a7e27f;
+  border-radius: 999px;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+/* LINKS */
+.nav-link {
+  position: relative;
+  z-index: 1;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #111;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+/* BADGE */
+.dot {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #111;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 7px;
+  border-radius: 50%;
+}
+
+/* CONTACT BUTTON */
+.contact-btn {
+  padding: 10px 26px;
+  border-radius: 999px;
+  background: #a7e27f;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(167, 226, 127, 0.6);
+}
