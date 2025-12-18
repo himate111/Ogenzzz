@@ -5,11 +5,11 @@ const menu = ["Home", "Products", "Blog", "About"];
 
 const Navbar = () => {
   const [activeIndex, setActiveIndex] = useState(2);
-  const menuRef = useRef([]);
+  const menuRefs = useRef([]);
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    const current = menuRef.current[activeIndex];
+    const current = menuRefs.current[activeIndex];
     if (current && sliderRef.current) {
       sliderRef.current.style.width = `${current.offsetWidth}px`;
       sliderRef.current.style.transform = `translateX(${current.offsetLeft}px)`;
@@ -20,16 +20,17 @@ const Navbar = () => {
     <header className="nav-container">
       <nav className="nav-pill">
 
-        {/* BRAND */}
+        {/* Brand */}
         <div className="brand">Ogenz</div>
 
-        {/* MENU */}
+        {/* Menu */}
         <div className="menu-wrapper">
-          <div className="slider" ref={sliderRef} />
+          <span ref={sliderRef} className="slider" />
+
           {menu.map((item, index) => (
             <div
               key={item}
-              ref={(el) => (menuRef.current[index] = el)}
+              ref={(el) => (menuRefs.current[index] = el)}
               className={`nav-link ${activeIndex === index ? "active" : ""}`}
               onClick={() => setActiveIndex(index)}
             >
@@ -39,7 +40,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* CONTACT */}
+        {/* Contact */}
         <button className="contact-btn">Contact</button>
 
       </nav>
