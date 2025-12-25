@@ -27,12 +27,13 @@
 }
 
 .service-card {
-  background: #fff;
+  background: #DBDADF; /* ✅ your required color */
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .service-card:hover {
   transform: translateY(-6px);

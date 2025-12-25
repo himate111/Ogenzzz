@@ -1,0 +1,155 @@
+/* SECTION */
+.testimonials-section {
+  width: 100%;
+  max-width: 1600px;
+  margin: 200px auto;
+  padding: 160px 40px;
+}
+
+/* AVATAR ROW */
+.testimonials-avatars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 120px;
+}
+
+
+/* AVATAR CARD */
+.avatar {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+
+  /* smooth + subtle */
+  transition: 
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* SIMPLE HOVER EFFECT */
+.avatar:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ARC / STEPPED EFFECT (REFERENCE STYLE) */
+.c1 {
+  transform: translateX(162px) translateY(145px);
+  width: 140px;
+  height: 175px;
+}
+
+.c2 {
+  transform: translateY(-55px);
+  width: 140px;
+  height: 175px;
+}
+
+.c3 {
+  width: 140px;
+  height: 175px;
+  transform: translateY(35px); /* highest */
+}
+
+
+.c4 {
+  transform: translateY(-30px);
+  width: 140px;
+  height: 175px;
+}
+
+.c5 {
+  transform: translateY(10px);
+  width: 140px;
+  height: 175px;
+}
+
+.c6 {
+  transform: translateY(-30px);
+  width: 140px;
+  height: 175px;
+}
+
+.c7 {
+  width: 140px;
+  height: 175px;
+  transform: translateY(35px); /* highest */
+}
+
+.c8 {
+  transform: translateY(-55px);
+  width: 140px;
+  height: 175px;
+}
+
+.c9 {
+  transform: translateX(-162px) translateY(145px);
+  width: 140px;
+  height: 175px;
+}
+
+
+/* CENTER CONTENT */
+.testimonials-content {
+  text-align: center;
+  max-width: 900px;
+  margin: -45px auto 0; /* ⬅️ moves content UP */
+}
+
+.testimonials-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #f1f1f1;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.testimonials-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.testimonials-content h2 span {
+  color: #777;
+}
+
+.testimonials-content p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.testimonials-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .testimonials-avatars {
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 90px;
+    height: 110px;
+  }
+
+  .testimonials-content h2 {
+    font-size: 30px;
+  }
+}
+

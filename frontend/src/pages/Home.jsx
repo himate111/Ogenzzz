@@ -3,6 +3,9 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import LoopCarousel from "../components/LoopCarousel";
 import ServicesAlt from "../components/ServicesAlt";
+import ServicesPalette from "../components/ServicesPalette";
+import Testimonials from "../components/Testimonials";
+import AboutUs from "../components/AboutUs";
 import { ArrowBendDownRight } from "phosphor-react";
 import "../styles/home.css";
 
@@ -22,7 +25,8 @@ const Home = () => {
       <div className="hero-cta-section">
     <div className="cta-doodle">
       <ArrowBendDownRight size={34} weight="light" className="cta-arrow" />
-      <span className="cta-note">it’s free</span>
+      <span className="cta-note">it's free</span>
+
     </div>
 
     <button className="cta-dotted">Get Started</button>
@@ -30,7 +34,12 @@ const Home = () => {
 
       {/* SERVICES */}
       {/* <Services /> */}
-      <ServicesAlt />
+      {/* <ServicesAlt /> */}
+      <ServicesPalette />
+
+      <Testimonials />
+      
+      <AboutUs />
     </>
   );
 };
