@@ -1,0 +1,213 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+}
+
+/* =========================
+   PAGE CONTAINER
+========================= */
+
+.hero {
+  width: 100%;
+  padding-top: 100px;   /* navbar spacing */
+  padding-bottom: 0px; /* space before next section */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.hero-page {
+  width: 100%;
+  min-height: 100vh;
+
+  /* space for floating navbar */
+  padding-top: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  
+}
+
+/* =========================
+   HERO CONTENT (COMPACT)
+========================= */
+.hero-section {
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+
+  /* 🔑 KEEP THIS SMALL */
+  padding: 20px 20px 10px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #e9ffd9;
+  color: #2f7d32;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.hero-title span {
+  color: #7ce0c2;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: #3A77BF;
+  max-width: 600px;
+  margin: 0 auto 18px;
+}
+
+
+
+.hero-cta-wrapper {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-cta button {
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hero-cta span {
+  font-size: 13px;
+  color: #888;
+}
+
+/* =========================
+   CAROUSEL POSITION
+========================= */
+.carousel-wrapper {
+  width: 100%;
+  margin-top:10px; /* 🔥 tight like reference */
+}
+
+/* =========================
+   DOODLE CTA (REFERENCE STYLE)
+========================= */
+
+.hero-cta-section {
+  position: relative;
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   margin-bottom: 80px;
+   z-index: 50;
+   width: 100%;
+}
+
+/* DOTTED BUTTON */
+.cta-dotted {
+  position: relative;
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: #3A77BF;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+/* DOTTED OUTLINE */
+.cta-dotted::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 2px dashed rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+/* DOODLE TEXT + ARROW */
+.cta-doodle {
+  position: absolute;
+
+  /* anchor near the button but relative to page center */
+  left: 50%;
+  top: -10px;
+
+  transform: translateX(-140px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cta-note {
+  font-family: "Comic Sans MS", "Patrick Hand", cursive;
+  font-size: 14px;
+  color:#023E8A;
+
+  /* ✨ reference-style placement */
+ transform: rotate(27deg) translateX(-50px) translateY(-4px);
+
+  transform-origin: left center;
+}
+
+.cta-arrow {
+  color: #023E8A;
+
+  /* Correct direction: down-right toward button */
+  transform: rotate(0deg) scale(1.25);
+  
+  position: relative;
+  top: 6px;
+}
+
+body,
+#root {
+  overflow-x: visible !important;
+}

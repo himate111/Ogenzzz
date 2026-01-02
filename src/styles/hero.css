@@ -1,0 +1,157 @@
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #A2D2FF !important;
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  box-shadow: none;
+  filter: none;
+  backdrop-filter: none;
+}
+
+/* FORCE text color inside badge */
+.hero-badge,
+.hero-badge * {
+  color: #023E8A !important;
+}
+
+.badge-icon {
+  margin-right: 6px;
+}
+
+
+.hero-title {
+  font-size: clamp(42px, 5vw, 64px); /* smaller */
+  font-weight: 800;
+  line-height: 1.1;                 /* tighter */
+  margin-bottom: 14px;
+  color: #023E8A;
+  margin-top: 45px;
+}
+
+
+.act-text {
+  color: #F3C623 !important; /* warm Gen-Z yellow */
+  font-weight: 800;
+}
+
+
+.hero-subtitle {
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 18px;
+  color: #3A77BF;
+  opacity: 0.85;
+}
+
+.hero-cta {
+  padding: 12px 26px;
+  font-size: 15px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-note {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* =========================
+   HERO SIDE ARROW (REFERENCE)
+========================= */
+
+.hero-wrapper {
+  position: relative; /* anchor for arrow */
+}
+
+/* floating arrow container */
+.hero-side-arrow {
+  position: absolute;
+
+  /* 🔥 uses right-side empty space */
+  right: -100px;      /* ⬅️ push further right */
+  top: 58%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  pointer-events: none; /* decorative only */
+}
+
+/* handwritten text */
+.hero-side-text {
+  font-family: "Comic Sans MS", "Patrick Hand", cursive;
+  font-size: 14px;
+  color: #023E8A;
+
+  transform: rotate(30deg) translateX(65px) translateY(-35px);
+  margin-bottom: 6px;
+}
+
+/* arrow icon */
+.hero-side-arrow svg {
+  color: #023E8A;
+
+  /* gentle tilt toward carousel */
+  transform: rotate(-20deg);
+}
+
+
+
+
+@media (max-width: 768px) {
+
+  .hero-content {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.15;
+    margin-top: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
+
+  /* MOVE arrow INSIDE flow */
+  .hero-side-arrow {
+    position: static;
+    margin-top: 28px;
+    align-items: center;
+  }
+
+  .hero-side-text {
+    transform: rotate(0deg);
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .hero-side-arrow svg {
+    transform: rotate(0deg);
+  }
+}
+
+
+

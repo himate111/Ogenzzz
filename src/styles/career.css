@@ -1,0 +1,829 @@
+
+
+
+.career-page {
+  font-family: "Inter", sans-serif;
+  background: white;
+}
+
+/* HERO */
+.career-hero {
+  padding-top: 30px;
+  margin-top: 30px;
+  color: #3A77BF;
+  text-align: center; 
+  
+}
+
+.career-hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.career-hero p {
+  font-size: 14px;
+  color: #023E8A;
+}
+
+.career-hero span {
+  margin: 0 6px;
+}
+
+/* CONTENT */
+.career-content {
+  width: 85%;
+  max-width: 1200px;
+  margin: 100px auto;
+  display: flex;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.career-text {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* left heading, right paragraph */
+  gap: 50px;
+  align-items: center;
+}
+
+/* Heading */
+.career-text h2 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0; /* important */
+  color : #023E8A;
+}
+
+/* Paragraph */
+.career-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #3A77BF;
+  max-width: 420px;
+}
+
+
+.career-image img {
+  width: 120%;
+  max-width: 1400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  margin-left: -80px; 
+  margin-bottom: 30px;
+}
+
+
+
+/* ======================
+   PERKS SECTION
+====================== */
+
+.career-perks {
+  max-width: 1200px;
+  margin: 80px auto 50px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.career-perks h2 {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color : #023E8A;
+}
+
+.career-perks p{
+  color : #3A77BF;
+}
+
+.perks-subtitle {
+  color: #666;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* CARD */
+.perk-card {
+  background: #3A77BF !important;
+  border-radius: 22px;
+  padding: 30px 36px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  max-width: 300px;
+  min-height: 90px; /* ✅ THIS IS THE KEY */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.perk-card:hover {
+  background: #023E8A !important;
+  transform: translateY(-6px);
+}
+
+/* OPTIONAL: make text pop on hover */
+.perk-card:hover h4 {
+  color: #ffffff;
+}
+
+.perk-card:hover p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.perk-card:hover .perk-icon {
+  color: #FFD166; /* warm contrast */
+}
+
+.perk-card h4 {
+  color: #ffffff;   /* WHITE title */
+}
+
+
+
+.perk-icon {
+  color: #FFD166;   /* warm yellow icon */
+}
+
+/* ICON */
+.perk-icon {
+  margin: 0 auto 18px;   /* ✅ centers horizontally */
+  display: flex;         /* ✅ ensures icon is centered */
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+
+/* TITLE */
+.perk-card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color : white;
+}
+
+/* TEXT */
+.perk-card p {
+  color: white;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .perks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .perks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+/* SECTION */
+.jobs-interest {
+  padding: 100px 80px;
+
+  text-align: center;
+}
+
+.jobs-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color : #023E8A;
+}
+
+.jobs-subtitle {
+  font-size: 16px;
+  color: #3A77BF;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CARD */
+.job-card-new {
+  background: #3A77BF !important;
+  border-radius: 18px;
+  padding: 30px 32px;
+  display: flex;
+  align-items: center; /* IMPORTANT */
+  gap: 24px;
+  min-height: 140px;
+}
+
+
+/* LEFT LOGO */
+.job-logo {
+
+  border-radius: 16px;
+  background: #ffffff;
+  font-weight: 700;
+  font-size: 18px;      /* ⬅️ text bigger */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-logo {
+  width: 120px;
+  height: 95px;
+  border-radius: 16px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGE INSIDE LOGO */
+.job-logo img {
+  width: 85%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* LEFT LOGO WRAPPER */
+.job-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CENTER CONTENT */
+.job-center {
+  flex: 1;
+  text-align: left;
+  padding-top: 4px;
+  margin-left: 30px;
+  color : white;
+}
+
+.job-center h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.job-company {
+  font-size: 13px;
+  color: white;
+  display: block;
+  margin-bottom: 12px;
+}
+
+
+.job-meta {
+  display: flex;
+  flex-direction: column; /* 👈 key fix */
+  gap: 6px;
+  font-size: 13px;
+  color: white;
+}
+
+.job-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.job-type {
+  font-weight: 600;
+}
+
+
+/* RIGHT */
+.job-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.job-apply {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.job-like {
+  font-size: 18px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/* OVERLAY */
+.apply-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.apply-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+/* MODAL */
+.apply-modal {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  animation: fadeUp 0.3s ease;
+}
+
+.apply-modal h3 {
+  margin-bottom: 12px;   /* ⬅️ increases space BELOW the title */
+}
+
+.apply-modal p {
+  margin-top: 0;         /* ⬅️ prevents collapsing */
+  margin-bottom: 20px;  /* ⬅️ space before inputs */
+  line-height: 1.6;
+  color: #666;
+}
+
+/* CLOSE */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* FORM */
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.apply-form input,
+.apply-form textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;                 /* space between icon & text */
+  font-size: 14px;
+  cursor: pointer;
+  color: #111;
+  margin-top: 6px;
+}
+
+.file-upload svg {
+  color: #555;
+}
+
+.file-upload input {
+  display: none;
+}
+
+
+.file-upload input {
+  display: none;
+}
+
+/* SUBMIT */
+.submit-btn {
+  margin-top: 10px;
+  background: #000;
+  color: #fff;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ==============================
+   RECRUITMENT PROCESS SECTION
+================================ */
+
+.recruitment-process {
+   padding: 100px 40px 60px;
+  text-align: center;
+ margin-top: 30px;
+    overflow: hidden;
+}
+
+.process-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  color: #023E8A;
+
+}
+
+
+/* WRAPPER */
+.process-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 60px; /* creates gap at start & end */
+}
+
+
+.process-steps {
+  display: flex;
+  justify-content: center;   /* ❌ remove space-between */
+  gap: 90px;                /* ✅ control spacing here */
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+
+.process-step {
+  width: 180px;
+  text-align: center;
+}
+
+
+/* ICON */
+.process-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background:#3A77BF; /* SAME as section bg */
+  border: 2px solid #d6dbe1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  position: relative;
+  z-index: 2; /* sits ABOVE the line */
+}
+
+
+/* TITLE */
+.process-step h4 {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color : #023E8A;
+}
+
+/* DESCRIPTION */
+.process-step p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  color :#3A77BF;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .process-line {
+    display: none;
+  }
+
+  .process-steps {
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+}
+
+
+
+
+.recruitment-process,
+.career-cta {
+  position: relative;
+  display: block;
+}
+
+.recruitment-process {
+  padding: 120px 40px 60px;
+}
+
+.process-title {
+  margin-top: -30px;
+  margin-bottom: 80px; /* keeps space from icons */
+}
+
+
+
+
+/* =========================
+   CAREER CTA SECTION
+========================= */
+
+.career-cta {
+  width: 100%;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.career-cta-content {
+  max-width: 900px;
+  text-align: center;
+}
+
+.career-cta-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #023E8A;
+  margin-bottom: 16px;
+
+}
+  
+.career-cta-content p {
+  max-width: 620px;
+  margin: 0 auto 32px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #3A77BF;
+}
+
+.career-cta-btn {
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: none;
+  background: #023E8A; /* warm CTA color */
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.career-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+}
+
+.recruitment-process {
+  padding-bottom: 32px;
+  margin-bottom: 0;
+}
+
+
+
+
+
+@media (max-width: 900px) {
+
+  /* HERO */
+  .career-hero {
+    padding-top: 20px;
+    margin-top: 0;
+  }
+
+  /* CONTENT */
+  .career-content {
+    margin: 40px auto -20px;
+  }
+
+  .career-text {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .career-image img {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+    margin-top: -40px;
+
+  }
+
+  /* JOBS */
+  .jobs-interest {
+    padding: 60px 24px;
+  }
+
+  /* PROCESS */
+  .process-title {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  .recruitment-process {
+    padding-top: 20px;
+  }
+
+ 
+
+}
+
+
+@media (max-width: 768px) {
+
+  /* ---------------------------------
+     GLOBAL HARD STOP SCROLL
+  ---------------------------------- */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* ---------------------------------
+     JOB CARDS – FIT SCREEN
+  ---------------------------------- */
+  .jobs-interest {
+    padding: 60px 16px;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+   
+
+    .career-text p {
+    margin-top: 12px;   /* pushes paragraph down */
+  }
+
+  /* Move image DOWN */
+  .career-image img {
+    margin-top: 0px;  /* pushes image down */
+  }
+
+
+
+  .job-card-new {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .job-left {
+    flex-shrink: 0;
+  }
+
+  .job-logo {
+    width: 70px;
+    height: 55px;
+  }
+
+  .job-center {
+    margin-left: 0;
+  }
+
+  .job-center h4 {
+    font-size: 16px;
+  }
+
+  .job-company {
+    font-size: 12px;
+  }
+
+  .job-meta {
+    font-size: 12px;
+  }
+
+  .job-right {
+    margin-left: auto;
+  }
+
+  /* ---------------------------------
+     READY FOR YOUR NEW JOB – FIX SIZE
+  ---------------------------------- */
+  .career-cta {
+    padding: 40px 16px;
+  }
+
+  .career-cta-content h2 {
+    font-size: 30px;          /* ↓ reduced */
+    line-height: 1.25;
+  }
+
+  .career-cta-content p {
+    font-size: 14px;          /* ↓ reduced */
+    line-height: 1.6;
+    padding: 0 8px;
+  }
+
+  .career-cta-btn {
+    font-size: 13px;
+    padding: 12px 28px;
+  }
+
+  /* ---------------------------------
+     HERO TEXT BALANCE
+  ---------------------------------- */
+  .career-hero h1 {
+    font-size: 38px;
+  }
+
+  .career-hero p {
+    font-size: 20px;
+  }
+
+ 
+  /* ---------------------------------
+     CAREER CONTENT SPACING
+  ---------------------------------- */
+  .career-content {
+    margin: 40px auto;
+    width: 100%;
+  }
+
+  .career-text h2 {
+    font-size: 34px;
+  }
+
+  .career-text p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+
+   /* CENTER THE SECTION TEXT */
+  .career-text {
+    text-align: center;
+    grid-template-columns: 1fr;   /* already stacked, keep safe */
+    gap: 20px;
+  }
+
+   .career-perks {
+    margin-top: -10px;   /* was effectively 80px */
+  }
+
+}

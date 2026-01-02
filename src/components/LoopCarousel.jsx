@@ -1,0 +1,117 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import "../styles/LoopCarousel.css";
+
+import carosel1 from "../assets/carosels/Teja.mp4";
+import carosel2 from "../assets/carosels/muruga.mp4";
+import carosel3 from "../assets/carosels/rikky.mp4";
+import carosel4 from "../assets/carosels/raja.mp4";
+import carosel5 from "../assets/carosels/viveksankar.mp4";
+import carosel6 from "../assets/carosels/lalithamam.mp4";
+import carosel7 from "../assets/carosels/nikhilanna.mp4";
+
+
+const videos = [
+  carosel1,
+  carosel2,
+  carosel3,
+  carosel4,
+  carosel5,
+  carosel6,
+  carosel7,
+];
+
+export default function LoopCarousel() {
+  const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const cards = cardsRef.current;
+    if (!cards.length) return;
+
+    const vw = window.innerWidth;
+    const spacing = 260;          // distance between cards
+    const totalWidth = spacing * cards.length;
+
+    gsap.set(containerRef.current, {
+      perspective: 1200,
+    });
+
+    // Initial positions (start from RIGHT side)
+    cards.forEach((card, i) => {
+      gsap.set(card, {
+        x: vw + i * spacing,
+        y: 0,
+      });
+    });
+
+    gsap.to(cards, {
+      x: `-=${totalWidth}`,
+      duration: 70,               // ⬅️ SLOW speed
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: (x) => {
+          const wrapped =
+            ((parseFloat(x) + totalWidth) % totalWidth) - spacing;
+          return `${wrapped}px`;
+        },
+      },
+      onUpdate: () => {
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const screenCenter = vw / 2;
+
+          const distance = Math.abs(centerX - screenCenter);
+          const normalized = Math.min(distance / screenCenter, 1);
+
+          // SCALE: smallest in center
+          const scale = 0.78 + normalized * 0.35;
+
+          // ROTATION: face inward
+          const rotateY =
+            centerX < screenCenter
+              ? normalized * 28
+              : -normalized * 28;
+
+          // DEPTH illusion
+          const z = -normalized * 120;
+          const y = normalized * 18;
+
+          gsap.set(card, {
+            scale,
+            rotateY,
+            z,
+            y,
+            opacity: 0.55 + normalized * 0.45,
+          });
+        });
+      },
+    });
+  }, []);
+
+  return (
+    <section className="carousel-section">
+      <div className="carousel-container" ref={containerRef}>
+{videos.map((src, i) => (
+  <div
+    className="carousel-card"
+    key={i}
+    ref={(el) => (cardsRef.current[i] = el)}
+  >
+    <video
+      src={src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="metadata"
+    />
+  </div>
+))}
+
+      </div>
+    </section>
+  );
+}
