@@ -171,7 +171,7 @@ const scrollToContact = () => {
     <div className="process-icon">
       <Dog size={32} />
     </div>
-    <h4>5. You Love Dogs 🐶</h4>
+    <h4>5. You Love Dogs</h4>
     <p>If dogs instantly make your day better, we already like you.</p>
     </div>
 
