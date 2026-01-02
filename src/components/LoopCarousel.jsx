@@ -2,13 +2,13 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "../styles/LoopCarousel.css";
 
-import carosel1 from "../assets/carosels/Teja.mp4";
-import carosel2 from "../assets/carosels/muruga.mp4";
-import carosel3 from "../assets/carosels/rikky.mp4";
-import carosel4 from "../assets/carosels/raja.mp4";
-import carosel5 from "../assets/carosels/viveksankar.mp4";
-import carosel6 from "../assets/carosels/lalithamam.mp4";
-import carosel7 from "../assets/carosels/nikhilanna.mp4";
+import carosel1 from "../videos/Teja.mp4";
+import carosel2 from "../videos/muruga.mp4";
+import carosel3 from "../videos/rikky.mp4";
+import carosel4 from "../videos/raja.mp4";
+import carosel5 from "../videos/viveksankar.mp4";
+import carosel6 from "../videos/lalithamam.mp4";
+import carosel7 from "../videos/nikhilanna.mp4";
 
 
 const videos = [

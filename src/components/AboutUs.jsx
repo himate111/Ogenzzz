@@ -1,9 +1,9 @@
 import "../styles/aboutUs.css";
 
-import centerVideo from "../assets/centerVideo.mp4";
+import centerVideo from "../videos/aboutus.mp4";
 import missmiss from "../assets/missmiss.png";
 
-import vision2 from "../assets/vision2.mp4";
+import visionvideo from "../videos/visionvideo.mp4";
 import { scrollToSection } from "../utlis/scroolTo";
 
 
@@ -129,7 +129,7 @@ Only decisions that make sense for the brand you’re building.
 
    <div className="mission-image">
   <video
-    src={vision2}
+    src={visionvideo}
     autoPlay
     muted
     loop
