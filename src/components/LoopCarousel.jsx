@@ -57,39 +57,37 @@ export default function LoopCarousel() {
           return `${wrapped}px`;
         },
       },
+   
       onUpdate: () => {
-        cards.forEach((card) => {
-          const rect = card.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const screenCenter = vw / 2;
+  cards.forEach((card) => {
+    const x = gsap.getProperty(card, "x");
+    const centerX = x + 100;
+    const screenCenter = vw / 2;
 
-          const distance = Math.abs(centerX - screenCenter);
-          const normalized = Math.min(distance / screenCenter, 1);
+    const distance = Math.abs(centerX - screenCenter);
+    const normalized = Math.min(distance / screenCenter, 1);
 
-          // SCALE: smallest in center
-          const scale = 0.78 + normalized * 0.35;
+    const scale =
+      Math.round((0.78 + normalized * 0.35) * 1000) / 1000;
 
-          // ROTATION: face inward
-          const rotateY =
-            centerX < screenCenter
-              ? normalized * 28
-              : -normalized * 28;
+    const rotateY =
+      centerX < screenCenter
+        ? normalized * 28
+        : -normalized * 28;
 
-          // DEPTH illusion
-          const z = -normalized * 120;
-          const y = normalized * 18;
-
-          gsap.set(card, {
-            scale,
-            rotateY,
-            z,
-            y,
-            opacity: 0.55 + normalized * 0.45,
-          });
-        });
-      },
+    gsap.set(card, {
+      scale,
+      rotateY,
+      z: -normalized * 120,
+      y: normalized * 18,
+      opacity: 0.55 + normalized * 0.45,
     });
-  }, []);
+  });
+},
+    });
+  },
+   
+  []);
 
   return (
     <section className="carousel-section">

@@ -74,7 +74,7 @@ const scrollToContact = () => {
 
 
       {/* PERKS SECTION */}
-      <section className="career-perks">
+      {/* <section className="career-perks">
   <h2>We Offer Amazing Perks</h2>
   <p className="perks-subtitle">
     We believe great work comes from happy, supported people.
@@ -124,7 +124,7 @@ const scrollToContact = () => {
 
 
   </div>
-      </section>
+      </section> */}
 
 
     <section className="recruitment-process">

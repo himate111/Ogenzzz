@@ -4,7 +4,7 @@ import person2 from "../assets/clients/person10.jpeg";
 import person3 from "../assets/clients/person3.jpeg";
 import rekha from "../assets/clients/rekhamam.png";
 import gocolors from "../assets/clients/gocolors.png";
-import person6 from "../assets/clients/person6.jpeg";
+import newclient from "../assets/clients/newclient.jpeg";
 import person7 from "../assets/clients/nikhil.jpeg";
 import rajamanickam from "../assets/clients/rajamanickam.jpeg";
 import person9 from "../assets/clients/person9.jpeg";
@@ -18,7 +18,7 @@ person2,
 person3,
 rekha,
 gocolors,
-person6,
+newclient,
 person7,
 rajamanickam,
 person9

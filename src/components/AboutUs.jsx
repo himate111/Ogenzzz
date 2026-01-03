@@ -112,49 +112,9 @@ Only decisions that make sense for the brand you’re building.
   </div>
 </div>
 
+
  {/* ================= MISSION & VISION ================= */}
-<section className="mission-vision-section">
 
-  {/* OUR MISSION */}
-  <div className="mission-container">
-    <div className="mission-text">
-      <h2>Our Mission</h2>
-      <p>
-        Our mission is to empower brands through thoughtful strategy,
-        impactful content, and data-driven digital marketing solutions.
-        We help businesses grow with clarity, creativity, and purpose
-        while building meaningful connections with their audience.
-      </p>
-    </div>
-
-   <div className="mission-image">
-  <video
-    src={visionvideo}
-    autoPlay
-    muted
-    loop
-    playsInline
-  />
-</div>
-
-  </div>
-
-  {/* OUR VISION */}
-   <div className="vision-card">
-    <div className="vision-heading">
-      <span>Our</span>
-      <span>Vision</span>
-    </div>
-
-    <p className="vision-text">
-      Our vision is to become a trusted digital growth partner for ambitious
-      brands, known for creative excellence, strategic depth, and measurable
-      results that create long-term impact.
-    </p>
-  </div>
-
-
-</section>
 
 
     </section>

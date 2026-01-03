@@ -50,3 +50,46 @@
   background: #000;      /* letterbox if aspect ratio differs */
   pointer-events: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.carousel-card {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.carousel-card video {
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1.001);
+  will-change: transform;
+}
+
+.carousel-card {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+.carousel-card video {
+  transform: translateZ(0) scale(1.001);
+}
