@@ -441,7 +441,7 @@ const [popup, setPopup] = useState({
     payload.append("resume", resume);
 
     try {
-      const res = await fetch("http://localhost:5000/career/apply", {
+      const res = await fetch("https://ogenzbackend.onrender.com/career/apply", {
         method: "POST",
         body: payload,
       });
