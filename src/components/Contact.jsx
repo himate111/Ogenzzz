@@ -46,7 +46,7 @@ const [contactData, setContactData] = useState({
 const [newsletterEmail, setNewsletterEmail] = useState("");
 const [loading, setLoading] = useState(false);
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = "https://ogenzbackend.onrender.com";
 
 
 const handleNewsletterSubmit = async (e) => {
