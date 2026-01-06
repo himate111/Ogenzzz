@@ -29,6 +29,16 @@ import {
 
 const Career = () => {
 
+  const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  about: "",
+});
+
+const [resume, setResume] = useState(null);
+const [loading, setLoading] = useState(false);
+
+
 const [showApply, setShowApply] = useState(false);
 const [selectedJob, setSelectedJob] = useState("");
 
@@ -40,6 +50,14 @@ const scrollToContact = () => {
     section.scrollIntoView({ behavior: "smooth" });
   }
 };
+
+
+const [popup, setPopup] = useState({
+  show: false,
+  message: "",
+  type: "success", // success | error
+});
+
 
 
   return (
@@ -401,34 +419,129 @@ const scrollToContact = () => {
 
       <h3>Apply for {selectedJob}</h3>
       <p>Please fill in your details below.</p>
+       
 
-      <form className="apply-form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
+       <form
+  className="apply-form"
+  onSubmit={async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-        <textarea
-          rows="4"
-          placeholder="Tell us about yourself"
-        />
+    if (!resume) {
+      alert("Please upload your resume");
+      setLoading(false);
+      return;
+    }
+
+    const payload = new FormData();
+    payload.append("name", formData.name);
+    payload.append("email", formData.email);
+    payload.append("about", formData.about);
+    payload.append("jobTitle", selectedJob);
+    payload.append("resume", resume);
+
+    try {
+      const res = await fetch("http://localhost:5000/career/apply", {
+        method: "POST",
+        body: payload,
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        setPopup({
+        show: true,
+        message: "Thanks for applying! Our team will contact you shortly 🚀",
+        type: "success",
+      });
+
+        setShowApply(false);
+        setFormData({ name: "", email: "", about: "" });
+        setResume(null);
+      } else {
+        setPopup({
+        show: true,
+        message: result.error || "Application failed. Please try again ❌",
+        type: "error",
+      });
+
+      }
+    } catch (err) {
+      setPopup({
+      show: true,
+      message: "Server error. Please try again later ❌",
+      type: "error",
+    });
+
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  }}
+>
+
+
+
+        <input
+        type="text"
+        placeholder="Full Name"
+        required
+        value={formData.name}
+        onChange={(e) =>
+          setFormData({ ...formData, name: e.target.value })
+        }
+      />
+
+
+        
+
+        <input
+        type="email"
+        placeholder="Email Address"
+        required
+        value={formData.email}
+        onChange={(e) =>
+          setFormData({ ...formData, email: e.target.value })
+        }
+      />
+
+
+
+       <textarea
+        rows="4"
+        placeholder="Tell us about yourself"
+        value={formData.about}
+        onChange={(e) =>
+          setFormData({ ...formData, about: e.target.value })
+        }
+      />
+
+
   
        <label className="file-upload">
         <CloudArrowUp size={20} weight="bold" />
-        <span>Upload Resume</span>
-        <input type="file" />
-       </label>
+        <span>{resume ? resume.name : "Upload Resume"}</span>
+        <input
+          type="file"
+          accept=".pdf,.doc,.docx"
+          required
+          onChange={(e) => setResume(e.target.files[0])}
+        />
+      </label>
+  
 
 
-        <button type="submit" className="submit-btn">
-          Submit Application
-        </button>
+    <button type="submit" className="submit-btn" disabled={loading}>
+      {loading ? "Submitting..." : "Submit Application"}
+    </button>
+
+       
       </form>
+
+
     </div>
   </div>
 )}
-
-
-
-
 
 
 
@@ -452,6 +565,18 @@ const scrollToContact = () => {
   </div>
     </section>
 
+   
+
+   {popup.show && (
+  <div className="popup-overlay">
+    <div className={`popup-box ${popup.type}`}>
+      <p>{popup.message}</p>
+      <button onClick={() => setPopup({ ...popup, show: false })}>
+        OK
+      </button>
+    </div>
+  </div>
+)}
 
     </div>
   );

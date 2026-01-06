@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/contact.css";
 
@@ -34,6 +35,66 @@ const scrollToSection = (id) => {
   }, 300);
 };
 
+
+const [contactData, setContactData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+});
+
+const [newsletterEmail, setNewsletterEmail] = useState("");
+const [loading, setLoading] = useState(false);
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+
+const handleNewsletterSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!newsletterEmail) {
+    alert("Please enter an email");
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_URL}/newsletter`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: newsletterEmail }),
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      setPopup({
+  show: true,
+  message: "Thanks for subscribing to our newsletter 🎉",
+  type: "success",
+});
+
+      setNewsletterEmail("");
+    } else {
+      setPopup({
+  show: true,
+  message: "Subscription failed. Please try again ❌",
+  type: "error",
+});
+
+    }
+  } catch (err) {
+    alert("Server error ❌");
+  }
+};
+
+
+const [popup, setPopup] = useState({
+  show: false,
+  message: "",
+  type: "success", // success | error
+});
+
+
   return (
 
     <section className="contact-wrapper">
@@ -59,28 +120,154 @@ const scrollToSection = (id) => {
         <div className="contact-top">
 
           {/* FORM */}
-          <div className="contact-form">
-            <div className="row">
-              <input type="email" placeholder="Email" />
-              <input type="text" placeholder="Phone" />
-            </div>
+           <div className="contact-form">
+  <form
+    onSubmit={async (e) => {
+      e.preventDefault();
+      setLoading(true);
 
-            <input type="text" placeholder="Name" />
-            <textarea placeholder="Message" rows="4"></textarea>
+      try {
+        const res = await fetch(`${API_URL}/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(contactData),
+        });
 
-            <button className="primary-btn">Submit</button>
-          </div>
+        const result = await res.json();
+
+        if (res.ok) {
+          
+          setPopup({
+          show: true,
+          message: "Thanks for contacting us! We’ll get back to you shortly 😊",
+          type: "success",
+        });
+
+          setContactData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+        } else {
+          alert(result.error || "Failed to send message ❌");
+        }
+      } catch (err) {
+              setPopup({
+        show: true,
+        message: "Something went wrong. Please try again later ❌",
+        type: "error",
+      });
+
+      } finally {
+        setLoading(false);
+      }
+    }}
+  >
+    <div className="row">
+      <input
+        type="email"
+        placeholder="Email"
+        required
+        value={contactData.email}
+        onChange={(e) =>
+          setContactData({ ...contactData, email: e.target.value })
+        }
+      />
+
+      <input
+        type="text"
+        placeholder="Phone"
+        value={contactData.phone}
+        onChange={(e) =>
+          setContactData({ ...contactData, phone: e.target.value })
+        }
+      />
+    </div>
+
+    <input
+      type="text"
+      placeholder="Name"
+      required
+      value={contactData.name}
+      onChange={(e) =>
+        setContactData({ ...contactData, name: e.target.value })
+      }
+    />
+
+    <textarea
+      placeholder="Message"
+      rows="4"
+      required
+      value={contactData.message}
+      onChange={(e) =>
+        setContactData({ ...contactData, message: e.target.value })
+      }
+    />
+
+    <button className="primary-btn" disabled={loading}>
+      {loading ? "Sending..." : "Submit"}
+    </button>
+  </form>
+</div>
+
 
           {/* NEWSLETTER */}
-          <div className="newsletter">
-            <h3>Our Newsletters</h3>
-            <p>
-           Join our newsletter to stay up to date on features, releases, and updates from our team.
-            </p>
+         <div className="newsletter">
+  <h3>Our Newsletters</h3>
+  <p>
+    Join our newsletter to stay up to date on features, releases,
+    and updates from our team.
+  </p>
 
-            <input type="email" placeholder="Email" />
-            <button className="dark-btn">Submit Button</button>
-          </div>
+  <form
+    onSubmit={async (e) => {
+      e.preventDefault();
+
+      try {
+        const res = await fetch(`${API_URL}/newsletter`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: newsletterEmail }),
+        });
+
+        const result = await res.json();
+
+        if (res.ok) {
+         setPopup({
+          show: true,
+          message: "Thanks for subscribing to our newsletter 🎉",
+          type: "success",
+        });
+
+          setNewsletterEmail("");
+        } else {
+          setPopup({
+          show: true,
+          message: "Subscription failed. Please try again ❌",
+          type: "error",
+        });
+
+        }
+      } catch (err) {
+        alert("Server error ❌");
+      }
+    }}
+  >
+    <input
+      type="email"
+      placeholder="Email"
+      required
+      value={newsletterEmail}
+      onChange={(e) => setNewsletterEmail(e.target.value)}
+    />
+
+    <button className="dark-btn">Subscribe</button>
+  </form>
+</div>
+
+
+
         </div>
 
         {/* BOTTOM CARDS */}
@@ -141,22 +328,29 @@ const scrollToSection = (id) => {
   <div className="footer-top">
 
     {/* LEFT: BRAND + NEWSLETTER */}
-    <div className="footer-brand">
-      <h3>Ogenz / Creative Studio</h3>
-      <p>
-        Join our newsletter to stay up to date on features, releases,
-        and updates from our team.
-      </p>
+      <div className="footer-brand">
+  <h3>Ogenz / Creative Studio</h3>
+  <p>
+    Join our newsletter to stay up to date on features, releases,
+    and updates from our team.
+  </p>
 
-      <div className="footer-subscribe">
-        <input type="email" placeholder="Enter your email" />
-        <button>Subscribe</button>
-      </div>
+  <form className="footer-subscribe" onSubmit={handleNewsletterSubmit}>
+    <input
+      type="email"
+      placeholder="Enter your email"
+      required
+      value={newsletterEmail}
+      onChange={(e) => setNewsletterEmail(e.target.value)}
+    />
+    <button type="submit">Subscribe</button>
+  </form>
 
-      <small>
-        By subscribing you agree to our <a href="#">Privacy Policy</a>.
-      </small>
-    </div>
+  <small>
+    By subscribing you agree to our <a href="#">Privacy Policy</a>.
+  </small>
+</div>
+
 
     {/* CENTER: QUICK LINKS */}
   
@@ -231,6 +425,18 @@ const scrollToSection = (id) => {
   </div>
 </footer>
 
+
+
+{popup.show && (
+  <div className="popup-overlay">
+    <div className={`popup-box ${popup.type}`}>
+      <p>{popup.message}</p>
+      <button onClick={() => setPopup({ ...popup, show: false })}>
+        OK
+      </button>
+    </div>
+  </div>
+)}
 
     
     </section>
