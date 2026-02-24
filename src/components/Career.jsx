@@ -21,7 +21,9 @@ import {
   UsersThree,
   PersonSimpleRun,
   CloudArrowUp,
-  Dog
+  Dog,
+  Warning,
+  Confetti
 } from "phosphor-react";
 
 
