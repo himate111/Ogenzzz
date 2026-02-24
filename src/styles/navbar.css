@@ -208,3 +208,68 @@ body {
 }
 
 
+
+
+
+/* Hide mobile by default */
+.mobile-nav {
+  display: none;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  /* Remove any container padding */
+  .nav-container {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Hide desktop nav */
+  .nav-pill {
+    display: none;
+  }
+
+  .mobile-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background: white;
+  }
+
+  /* LEFT - Hamburger */
+  .hamburger {
+    position: absolute;
+    left: 15px;     /* Hard lock to left */
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  /* CENTER - Logo */
+  .mobile-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .mobile-logo img {
+    height: 42px;
+  }
+
+  /* RIGHT - Button */
+  .mobile-contact {
+    position: absolute;
+    right: 15px;   /* Hard lock to right */
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 2;
+  }
+}

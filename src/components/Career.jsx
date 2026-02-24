@@ -5,6 +5,7 @@ import digital from "../assets/digital.png";
 import graphic from "../assets/graphic.png";
 import contentWriting from "../assets/contentwriting.png";
 import uiux from "../assets/uiux.png";
+import { useNavigate } from "react-router-dom";
 
 import {
   Funnel,
@@ -60,6 +61,7 @@ const [popup, setPopup] = useState({
   type: "success", // success | error
 });
 
+const navigate = useNavigate();
 
 
   return (
@@ -69,7 +71,14 @@ const [popup, setPopup] = useState({
       <section className="career-hero">
         <h1>Careers</h1>
         <p>
-          Home <span>›</span> <strong>Career</strong>
+          <span 
+            style={{ cursor: "pointer", color: "#007bff" }} 
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Home
+          </span>
+          <span> › </span>
+          <strong>Career</strong>
         </p>
       </section>
 

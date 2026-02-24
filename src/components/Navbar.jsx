@@ -37,6 +37,29 @@ const Navbar = () => {
 
   return (
     <header className="nav-container">
+
+      {/* ===== MOBILE NAV ===== */}
+<div className="mobile-nav">
+  <div className="hamburger">☰</div>
+
+  <div
+    className="mobile-logo"
+    onClick={() => handleClick(0, "top")}
+  >
+    <img src={logo} alt="Ogenz Logo" />
+  </div>
+
+  <button
+    className="mobile-contact"
+    onClick={() =>
+      document
+        .getElementById("contact")
+        ?.scrollIntoView({ behavior: "smooth" })
+    }
+  >
+    Let’s Talk
+  </button>
+</div>
       <nav className="nav-pill">
 
         {/* Brand */}

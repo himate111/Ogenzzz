@@ -104,10 +104,16 @@ const [popup, setPopup] = useState({
      <section className="contact-header">
   <h1>Contact Us</h1>
 
-  <p className="contact-breadcrumb">
-    Home <span>›</span> Contact
-  </p>
-
+<p className="contact-breadcrumb">
+  <span
+    style={{ cursor: "pointer", color: "#007bff" }}
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  >
+    Home
+  </span>
+  <span> › </span>
+  Contact
+</p>
   {/* Decorative dots */}
   
      </section>
