@@ -35,12 +35,20 @@ const Navbar = () => {
     }
   };
 
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="nav-container">
 
       {/* ===== MOBILE NAV ===== */}
 <div className="mobile-nav">
-  <div className="hamburger">☰</div>
+  <div 
+  className="hamburger"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  ☰
+</div>
 
   <div
     className="mobile-logo"
@@ -60,6 +68,36 @@ const Navbar = () => {
     Let’s Talk
   </button>
 </div>
+
+
+{menuOpen && (
+  <div className="mobile-menu">
+    {menu.map((item, index) => (
+      <div
+        key={item.label}
+        className="mobile-menu-item"
+        onClick={() => {
+          handleClick(index, item.id);
+          setMenuOpen(false);
+        }}
+      >
+        {item.label}
+      </div>
+    ))}
+
+    <div
+      className="mobile-menu-item"
+      onClick={() => {
+        document
+          .getElementById("contact")
+          ?.scrollIntoView({ behavior: "smooth" });
+        setMenuOpen(false);
+      }}
+    >
+      Contact
+    </div>
+  </div>
+)}
       <nav className="nav-pill">
 
         {/* Brand */}
@@ -69,6 +107,8 @@ const Navbar = () => {
 >
   <img src={logo} alt="Ogenz Logo" className="brand-logo" />
 </div>
+
+
 
 
         {/* Menu */}
